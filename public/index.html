@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html ng-app="aplicacion">
+    <head>
+        <meta charset="utf-8" />
+        <title> Clientes </title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+        <script type="text/javascript" src="/javascripts/angular.min.js"></script>
+        <script type="text/javascript" src="/javascripts/script.js"></script>
+    </head>
+    <body>
+
+        <div class="mdl-layout mdl-js-layout">
+            <header class="mdl-layout__header mdl-layout__header--scroll">
+                <div class="mdl-layout__header-row">
+                  <!-- Title -->
+                  <span class="mdl-layout-title">ABM | 3 Banderas</span>
+                  <!-- Add spacer, to align navigation to the right -->
+                  <div class="mdl-layout-spacer"></div>
+                  <!-- Navigation -->
+                  <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                  </nav>
+                </div>
+            </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">ABM | 3 Banderas</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+                <div class="page-content">
+
+                    <div class="mdl-grid" ng-controller="Clientes" ng-init="cargarClientes()">
+            
+
+             <div class="mdl-cell mdl-cell--12-col mdl-cell--bottom">
+                <form action="javascript:void(0);">
+                <div class="mdl-cell mdl-cell--4-col">
+
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label class=""> Nombre </label>
+                        <input class="mdl-textfield__input" type="text" ng-model="nombre" />
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield">                    
+                        <label class=""> Apellido </label>
+                        <input class="mdl-textfield__input" type="text" ng-model="apellido" />
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <label class=""> Domicilio </label>
+                        <input class="mdl-textfield__input" type="text" ng-model="domicilio" />
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--4-col">
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <label class=""> Teléfono </label>
+                        <input class="mdl-textfield__input" type="text" ng-model="telefono" />
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <label class=""> Email </label>
+                        <input class="mdl-textfield__input" type="text" ng-model="email" />
+                    </div>                    
+                </div>
+                <div class="mdl-cell mdl-cell--4-col">
+                    <div class="span4">
+                        <input type="submit" value="Cargar" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="guardarCliente()" />
+                        <input type="button" value="Limpiar" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="limpiarDatos()" />
+                    </div>
+                </div>
+            </form>
+            </div>
+
+            
+
+            <div class="mdl-cell mdl-cell--4-col">
+                    <table class="mdl-data-table">
+                        <thead>
+                            <tr>
+                                <th> Nombre </th>
+                                <th> Apellido </th>
+                                <th> Domicilio </th>
+                                <th> Teléfono </th>
+                                <th> Email </th>
+                                <th>  </th>
+                                <th>  </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in clientes">
+                                <td> {{item.nombre}} </td>
+                                <td> {{item.apellido}} </td>
+                                <td> {{item.domicilio}} </td>
+                                <td> {{item.telefono}} </td>
+                                <td> {{item.email}} </td>
+                                <td> <a href="javascript:void(0);" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" ng-click="recuperarCliente(item._id)"> Editar </a> </td>
+                                <td> <a href="javascript:void(0);" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="eliminarCliente(item._id)"> Eliminar </a> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+            
+        </div>
+
+
+                </div>
+        </main>
+       </div>
+
+        
+    </body>
+</html>
+
+
